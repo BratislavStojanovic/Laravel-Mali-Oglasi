@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,5 +50,15 @@ class HomeController extends Controller
         $user->save();
 
         return redirect(route('home'));
+    }
+
+    public function showAdForm()
+    {
+
+        $allCategories = Category::all();
+
+        return view('home.showAdForm',[
+            "categories" => $allCategories
+        ]);
     }
 }
