@@ -8,7 +8,7 @@
         </div>
         <div class="col-8">
 
-           <form action="" method="post" enctype="multipart/form-data">
+           <form action="{{ route('home.saveAd') }}" method="post" enctype="multipart/form-data">
                @csrf
                <input type="text" name="title" placeholder="title" class="form-control"><br>
                <textarea name="body" placeholder="body" class="form-control" cols="30" rows="10"></textarea><br>
@@ -24,7 +24,7 @@
                    
                @endforeach
             </select><br>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
            </form>
            
         </div>
