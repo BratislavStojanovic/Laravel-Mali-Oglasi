@@ -8,6 +8,17 @@
         </div>
         <div class="col-8">
             <h2>All Ads</h2>
+            <ul class="list-group">
+                
+                    @foreach ($all_ads as $ad)
+                      <li class="list-group-item">
+                          <a href="">
+                              {{ $ad->title }}
+                          </a>
+                      </li>
+                    @endforeach
+               
+            </ul>
         </div>
     </div>
 </div>

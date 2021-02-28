@@ -26,8 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       // $all_ads = Ad::where('user_id',Auth::user()->id)->get();
+
+       $all_ads = Auth::user()->ads;
+
+        return view('home',['all_ads' => $all_ads]);
     }
+
+
 
     public function addDeposit()
     {
