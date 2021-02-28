@@ -116,4 +116,13 @@ class HomeController extends Controller
 
     }
 
+
+
+    public function showSingleAd($id)
+    {
+        $single_ad = Ad::find($id);
+
+        return view('home.singleAd',['single_ad' => $single_ad]);
+    }
+
 }

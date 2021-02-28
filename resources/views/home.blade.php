@@ -12,7 +12,7 @@
                 
                     @foreach ($all_ads as $ad)
                       <li class="list-group-item">
-                          <a href="">
+                          <a href="{{ route('home.singleAd', ['id'=>$ad->id]) }}">
                               {{ $ad->title }}
                           </a>
                       </li>

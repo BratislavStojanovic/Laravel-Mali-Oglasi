@@ -79,5 +79,7 @@
             @yield('content')
         </main>
     </div>
+
+    @yield('page-scripts')
 </body>
 </html>
