@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[AdController::class,'index'])->name('welcome');
+Route::get('/single-ad/{id}',[AdController::class,'show'])->name('singleAd');
 
 Auth::routes();
 
