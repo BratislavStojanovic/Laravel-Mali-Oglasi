@@ -20,6 +20,8 @@
                @foreach ($all_ads as $ad)
                     <li class="list-group-item">
                         <a href="{{ route('singleAd', ['id'=>$ad->id]) }}">{{ $ad->title }}</a>
+                        <span class="badge badge-warning float-right p-1">Pregleda {{ $ad->views }}</span>
+                        <span class="badge badge-primary badge-fill p-1">{{ $ad->price }} rsd</span>
                     </li>
                @endforeach
            </ul>

@@ -38,6 +38,12 @@ class AdController extends Controller
     {
          $single_ad = Ad::find($id);
 
+        if(auth()->check() && auth()->user()->id !== $single_ad->user_id){
+            $single_ad->increment('views');
+        }
+
+         
+
          return view('singleAd', compact('single_ad'));
     }
 }
