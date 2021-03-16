@@ -11,6 +11,8 @@ class AdController extends Controller
     public function index()
     {
 
+        $all_ads = new Ad;
+
          if (isset(request()->cat)) {
 
           //   $cat = Category::where('name',request()->cat)->first();
@@ -21,13 +23,17 @@ class AdController extends Controller
             //  $query->where('name',request()->cat);
                 $query->whereName(request()->cat);
 
-          })->get();
-         }else{
-            $all_ads = Ad::all();
+          });
+         }
+
+         if(isset(request()->type)){
+          
+            $type = (request()->type == 'lower') ? 'asc' : 'desc';
+            $all_ads = $all_ads->orderBy('price',$type);
          }
 
 
-
+        $all_ads = $all_ads->get();
         
         $all_categories = Category::all();
 
@@ -38,7 +44,7 @@ class AdController extends Controller
     {
          $single_ad = Ad::find($id);
 
-        if(auth()->check() && auth()->user()->id !== $single_ad->user_id){
+        if (auth()->check() && auth()->user()->id !== $single_ad->user_id) {
             $single_ad->increment('views');
         }
 
