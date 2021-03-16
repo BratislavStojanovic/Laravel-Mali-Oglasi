@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdController::class,'index'])->name('welcome');
 Route::get('/single-ad/{id}',[AdController::class,'show'])->name('singleAd');
+Route::post('/single-ad/{id}/send-message',[AdController::class,'sendMessage'])->name('sendMessage');
 
 Auth::routes();
 
