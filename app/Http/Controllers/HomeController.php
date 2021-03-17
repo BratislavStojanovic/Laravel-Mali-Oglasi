@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Category;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -123,6 +124,13 @@ class HomeController extends Controller
         $single_ad = Ad::find($id);
 
         return view('home.singleAd',['single_ad' => $single_ad]);
+    }
+
+    public function showMessages()
+    {
+        $messages = Message::where('receiver_id', auth()->user()->id)->get();
+
+        return view('home.messages', compact('messages'));
     }
 
 }

@@ -40,19 +40,25 @@
            <button class="btn btn-danger">{{ $single_ad->price}}</button>
        </div>
 
-       
-   </div> 
+    </div> 
+   
 
    @if (auth()->check() && auth()->user()->id !== $single_ad->user_id)
-   <div class="row mt-3">
+   <div class="row mt-3 mb-5">
     <div class="col-6">
         <form action="{{ route('sendMessage', ['id'=>$single_ad->id]) }}" method="POST">
             @csrf
             <textarea name="msg" class="form-control" placeholder="Send message to {{ $single_ad->user->name }}" cols="30" rows="10"></textarea><br>
             <button type="submit" class="btn btn-primary form-control">Send</button>
         </form>
+        @if (session()->has('message'))
+           <div class="alert alert-success">
+               {{session()->get('message')}}
+          </div> 
+        @endif
     </div>
 </div>
+
    @endif
 
    
