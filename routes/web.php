@@ -30,6 +30,10 @@ Route::get('/home/ad/{id}', [App\Http\Controllers\HomeController::class, 'showSi
 
 Route::get('/home/messages', [App\Http\Controllers\HomeController::class, 'showMessages'])->name('home.showMessages');
 
+Route::get('/home/messages/replay', [App\Http\Controllers\HomeController::class, 'replay'])->name('home.replay');
+
+Route::post('/home/messages/replay', [App\Http\Controllers\HomeController::class, 'replayStore'])->name('home.replayStore');
+
 
 
 

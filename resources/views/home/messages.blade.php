@@ -15,7 +15,7 @@
                          <p>Oglas: {{ $message->ad->title }} <span class="float-right">{{ $message->created_at->format('d M Y') }}</span></p>
                         <p>From: {{ $message->sender->name }}</p>
                         <p><strong>{{ $message->text }}</strong></p>
-                        <a href="">Reply</a>
+                        <a href="{{ route('home.replay', ['sender_id'=>$message->sender->id,'ad_id'=>$message->ad_id]) }}">Reply</a>
                       </li>
                     @endforeach
                
